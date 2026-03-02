@@ -1,0 +1,91 @@
+:root {
+    --bg-dark: #0f071a;
+    --bg-card: rgba(30, 15, 50, 0.4);
+    --lavender-pale: #E6E6FA;
+    --lavender-main: #B19CD9;
+    --amethyst: #9966CC;
+    --electric-purple: #BF40BF;
+    --text-main: #f3f0ff;
+    --text-dim: #b8a9c9;
+    --glass-border: rgba(230, 230, 250, 0.15);
+    --shadow-purple: 0 8px 32px rgba(153, 102, 204, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top left, #1a0b2e, #0f071a);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.glass-panel {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-purple);
+}
+
+.lavender-gradient-text {
+    background: linear-gradient(135deg, var(--lavender-pale), var(--amethyst));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--amethyst), var(--electric-purple));
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(191, 64, 191, 0.3);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(191, 64, 191, 0.5);
+    filter: brightness(1.1);
+}
+
+nav {
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 7, 26, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+nav .nav-links a {
+    color: var(--text-dim);
+    margin-left: 32px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active {
+    color: var(--lavender-pale);
+}

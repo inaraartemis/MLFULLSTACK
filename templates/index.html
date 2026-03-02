@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Prediction Suite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 42px;
+            background: linear-gradient(90deg, #00f5ff, #6366f1);
+            background-clip: text;
+            color: transparent;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #cbd5e1;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #00f5ff;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .card {
+            background: #111827;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 15px;
+            max-width: 600px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #00f5ff, #6366f1);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #00f5ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>AI Prediction Suite</h1>
+        <p>Full Stack Machine Learning Application | FastAPI + Scikit-Learn</p>
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Regression Model</h3>
+            <p>Predict numerical outcomes using trained Linear Regression model.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Classification Model</h3>
+            <p>Binary classification using Logistic Regression algorithm.</p>
+        </div>
+        <div class="feature-card">
+            <h3>REST API Backend</h3>
+            <p>Built with FastAPI for scalable production-ready ML serving.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>📈 House Price Prediction</h2>
+            <input type="text" id="reg_input" placeholder="Enter 8 comma-separated values">
+            <button onclick="predictRegression()">Predict</button>
+            <div class="result" id="reg_result"></div>
+        </div>
+
+        <div class="card">
+            <h2>🩺 Cancer Classification</h2>
+            <input type="text" id="clf_input" placeholder="Enter 30 comma-separated values">
+            <button onclick="predictClassification()">Predict</button>
+            <div class="result" id="clf_result"></div>
+        </div>
+    </section>
+
+    <footer>
+        Built with ❤️ using FastAPI, Scikit-Learn, and Modern Frontend Design
+    </footer>
+
+    <script>
+        async function predictRegression() {
+            const input = document.getElementById("reg_input").value;
+
+            const response = await fetch("/predict_regression", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "features=" + input
+            });
+
+            const data = await response.json();
+            document.getElementById("reg_result").innerText =
+                "Predicted Price: " + data.prediction.toFixed(3);
+        }
+
+        async function predictClassification() {
+            const input = document.getElementById("clf_input").value;
+
+            const response = await fetch("/predict_classification", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "features=" + input
+            });
+
+            const data = await response.json();
+            document.getElementById("clf_result").innerText =
+                data.prediction === 1
+                    ? "Prediction: Malignant"
+                    : "Prediction: Benign";
+        }
+    </script>
+
+</body>
+
+</html>

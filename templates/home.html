@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Luna AI | Lavender Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/lavender.css">
+    <style>
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 40px;
+            background: radial-gradient(circle at 50% 50%, rgba(153, 102, 204, 0.15), transparent 70%);
+        }
+
+        .hero-section h1 {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero-section p {
+            font-size: 22px;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .module-card {
+            padding: 60px 40px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--amethyst);
+            background: rgba(45, 20, 75, 0.4);
+        }
+
+        .module-card h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--lavender-pale);
+        }
+
+        .module-card p {
+            color: var(--text-dim);
+            margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .module-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px var(--amethyst));
+        }
+
+        .card-footer {
+            margin-top: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 40px;
+            color: var(--text-dim);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo lavender-gradient-text">LUNA AI</div>
+        <div class="nav-links">
+            <a href="/" class="active">Dashboard</a>
+            <a href="/regression">Predict</a>
+            <a href="/classification">Classify</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <section class="hero-section glass-panel">
+            <h1 class="lavender-gradient-text">Intelligence Redefined.</h1>
+            <p>Experience the next generation of predictive analytics with Luna's specialized machine learning modules.
+            </p>
+            <div class="cta-btns">
+                <button class="primary-btn" onclick="location.href='/regression'">Explore Luna Predict</button>
+            </div>
+        </section>
+
+        <div class="module-grid">
+            <div class="module-card glass-panel">
+                <div class="module-icon">🏥</div>
+                <h2 class="lavender-gradient-text">Luna Predict</h2>
+                <p>Health analytics engine optimized for physiological progression monitoring using the Diabetes
+                    dataset.</p>
+                <div class="card-footer">
+                    <button class="primary-btn" onclick="location.href='/regression'">Open Health Suite</button>
+                </div>
+            </div>
+
+            <div class="module-card glass-panel">
+                <div class="module-icon">🔢</div>
+                <h2 class="lavender-gradient-text">Luna Classify</h2>
+                <p>Advanced pattern recognition suite for optical digit identification with real-time image processing.
+                </p>
+                <div class="card-footer">
+                    <button class="primary-btn" onclick="location.href='/classification'">Open Pattern Suite</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Luna AI &bull; Made by Arpita Mahapatra &bull; 2026
+    </footer>
+
+</body>
+
+</html>
