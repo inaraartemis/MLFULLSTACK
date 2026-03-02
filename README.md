@@ -2,8 +2,8 @@
 
 **Luna AI** is a premium, full-stack machine learning platform designed for high-performance predictive analytics and optical pattern recognition. Overhauled with a stunning **Lavender Design System**, it combines aesthetic excellence with powerful ML capabilities.
 
-![Luna AI Dashboard]<img width="1884" height="928" alt="image" src="https://github.com/user-attachments/assets/9ec8657e-88b6-4f3e-8612-0c16a19b6b42" />
-) *(Preview placeholder)*
+<img width="1884" height="928" alt="image" src="https://github.com/user-attachments/assets/9ec8657e-88b6-4f3e-8612-0c16a19b6b42" />
+
 
 ## ✨ Key Features
 
